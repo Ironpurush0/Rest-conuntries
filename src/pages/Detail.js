@@ -18,9 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthGrid(props) {
+const Details = (props) => {
   const classes = useStyles();
   const {name} = useParams()
+
   const {currentData} = useContext(DataContext)
 
   const response = currentData.filter(data => data.name === name)
@@ -34,3 +35,5 @@ export default function FullWidthGrid(props) {
     </div>
   );
 }
+
+export default Details

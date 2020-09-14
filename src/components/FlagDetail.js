@@ -39,21 +39,21 @@ const FlagDetail = ({name, response}) => {
                             </div>
                             <div className="container2">
                                 {data.topLevelDomain.map(data => (
-                                    <p>Top Level Domain: {data}</p>
+                                    <p key={data}>Top Level Domain: {data}</p>
                                 ))}
                                 {data.currencies.map(data => (
-                                    <p>Currencies: {data.name}</p>
+                                    <p key={data.name}>Currencies: {data.name}</p>
                                 ))}
                                 {data.languages.map(data => (
-                                    <p>Languages: {data.name}</p>
+                                    <p key={data.name}>Languages: {data.name}</p>
                                 ))}
                             </div>
                         </div>
                         <div className="buttons__container">
-                        <p>Border countries...</p>
-                        {data.borders.map(data => (
-                                <Button variant="contained">{data}</Button>
-                        ))}
+                            <p>Border countries...</p>
+                            {data.borders.map(data => (
+                                <Button key={data} variant="contained">{data}</Button>
+                            ))}
                         </div>
                     </div>
                 </Grid>

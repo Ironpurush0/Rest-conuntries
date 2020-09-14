@@ -7,10 +7,9 @@ import Dropdown from '../components/Dropdown'
 import FlagsList from '../components/FlagsList'
 
 import useHook from '../hooks/useHook'
-import {Grid, Container} from '@material-ui/core'
-import {Link} from 'react-router-dom'
+import {Container} from '@material-ui/core'
 
-import {DataContext} from '../context/DataContext'
+// import {DataContext} from '../context/DataContext'
 
 function Home() {
     const [region, setRegion] = useState('Filter be region')
@@ -18,18 +17,21 @@ function Home() {
 
     const baseUrl = 'https://restcountries.eu/rest/v2/all'
 
+    const handleChange = (event) => {
+        setSearchTerm(event.target.value)
+    }
+
     const {data, loading} = useHook(baseUrl)
-    console.log(data)
-    // const {currentData} = useContext(DataContext)
+
 
     return (
         <>
         <Container maxWidth="lg">
             <div className="form__container">
-                <SearchBar />
+                <SearchBar value={searchTerm} onChange={handleChange} />
                 <Dropdown region={region} />
             </div>
-                <FlagsList data={data} loading={loading} />
+            {searchTerm ? <Card data={data} loading={loading} /> : <FlagsList data={data} loading={loading} />}
             </Container>
         </>
     )

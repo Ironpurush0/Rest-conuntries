@@ -11,27 +11,19 @@ const FlagsList = ({data, loading}) => {
 
     return (
             <Grid container  spacing={10} alignItems="center" justify="center">
-                    {data.map(country => (
+                    {data.map(data => (
                         <Grid 
                             item 
-                            key={country.name} 
+                            key={data.name} 
                             xs={12} 
                             sm={3}>
                             <Link 
                                 style={{textDecoration: 'none'}} 
                                 to={{
-                                    pathname: `/country/${country.name}`,
-                                    state: data
+                                    pathname: `/country/${data.name}`
                                 }}
                         >
-                            <Card 
-                                key={country.name} 
-                                population={country.population} 
-                                region={country.region} 
-                                capital={country.capital} 
-                                name={country.name} 
-                                image={country.flag} 
-                            />
+                            <Card data={data} />
                             </Link>
                         </Grid>
                     ))}

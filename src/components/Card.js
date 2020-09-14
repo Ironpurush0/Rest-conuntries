@@ -16,26 +16,29 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard(props) {
+const MediaCard = ({data}) => {
   const classes = useStyles();
+  const {population, region, capital, name, flag} = data
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.image}
-          title="Contemplative Reptile"
+          image={flag}
+
         />
         <CardContent>
           <Typography variant="h5" component="h2">
-            {props.name}
+            {name}
           </Typography>
-            <p>Population: {props.population}</p>
-            <p>Region: {props.region}</p>
-            <p>Capital: {props.capital}</p>
+            <p>Population: {population}</p>
+            <p>Region: {region}</p>
+            <p>Capital: {capital}</p>
         </CardContent>
       </CardActionArea>
     </Card>
   );
 }
+
+export default MediaCard
