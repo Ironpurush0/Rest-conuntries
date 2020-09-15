@@ -5,6 +5,7 @@ import Card from '../components/Card'
 import SearchBar from '../components/SearchBar'
 import Dropdown from '../components/Dropdown'
 import FlagsList from '../components/FlagsList'
+import SingleCard from '../components/SingleCard'
 
 import useHook from '../hooks/useHook'
 import {Container} from '@material-ui/core'
@@ -31,7 +32,7 @@ function Home() {
                 <SearchBar value={searchTerm} onChange={handleChange} />
                 <Dropdown region={region} />
             </div>
-            {searchTerm ? <Card data={data} loading={loading} /> : <FlagsList data={data} loading={loading} />}
+            {searchTerm ? <SingleCard data={data} loading={loading} /> : <FlagsList data={data} loading={loading} />}
             </Container>
         </>
     )
