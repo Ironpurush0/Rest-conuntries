@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link, useParams } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -18,24 +19,26 @@ const useStyles = makeStyles({
 
 const MediaCard = ({data}) => {
   const classes = useStyles();
-  const {population, region, capital, name, flag} = data
+  const {name} = useParams()
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
+        <Link to={`country/${data.name}`}>
         <CardMedia
           className={classes.media}
-          image={flag}
+          image={data.flag}
 
         />
         <CardContent>
           <Typography variant="h5" component="h2">
             {name}
           </Typography>
-            <p>Population: {population}</p>
-            <p>Region: {region}</p>
-            <p>Capital: {capital}</p>
+            <p>Population: {data.population}</p>
+            <p>Region: {data.region}</p>
+            <p>Capital: {data.capital}</p>
         </CardContent>
+        </Link>
       </CardActionArea>
     </Card>
   );

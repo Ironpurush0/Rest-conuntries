@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import FlagDetail from '../components/FlagDetail'
 import {Container} from '@material-ui/core'
 import {DataContext} from '../context/DataContext'
-import {useParams} from 'react-router-dom'
 
 import './Details.css'
+import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,17 +20,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Details = (props) => {
   const classes = useStyles();
+
+  // Getting the name from the route using the useParams() hook.
   const {name} = useParams()
 
-  const {currentData} = useContext(DataContext)
+  // Data coming from the context
+  const {data} = useContext(DataContext)
 
-  const response = currentData.filter(data => data.name === name)
-
+  // Filtering the info by comparing the names.
+  const response = data.filter(info => info.name === name)
+  
 
   return (
     <div className={classes.root}>
       <Container>
-        <FlagDetail name={name} response={response} />
+        <FlagDetail data={response} />
       </Container>
     </div>
   );

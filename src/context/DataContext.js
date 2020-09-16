@@ -4,23 +4,26 @@ import axios from 'axios'
 export const DataContext = React.createContext()
 
 export const DataProvider = ({children}) => {
-    const [currentData, setCurrentData] = useState([])
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    const fetchData = async () => {
+        setLoading(true)
+        try {
+            const response = await axios.get('https://restcountries.eu/rest/v2/all')
+            setData(response.data)
+            setLoading(false)
+        } catch (error) {
+            throw new Error(error.message)
+        }
+    }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await axios.get('https://restcountries.eu/rest/v2/all')
-                setCurrentData(res.data)
-                // console.log(res.data)
-            } catch (error) {
-                alert(error.message)
-            }
-        }
         fetchData()
     }, [])
 
     return (
-        <DataContext.Provider value={{currentData}}>
+        <DataContext.Provider value={{data, loading}} >
             {children}
         </DataContext.Provider>
     )

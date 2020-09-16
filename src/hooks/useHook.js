@@ -9,10 +9,12 @@ const useHook = (url) => {
         const fetchData = async () => {
             setLoading(true)
             try {
-                const response = await axios.get(url)
-                // console.log(response.data)
-                setData(response.data)
-                setLoading(false)  
+                const response = await fetch(url)
+                if(response.ok){
+                    const data = response.json()
+                    setData(data)
+                setLoading(false)
+                }  
             } catch (error) {
              alert(error.message)   
             }
