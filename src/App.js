@@ -3,11 +3,18 @@ import './App.css';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {ThemeProvider, createGlobalStyle} from 'styled-components'
-
+import style from 'styled-theming'
+import storage from 'local-storage-fallback'
+import useTheme from './hooks/useTheme'
 import Home from './pages/Home'
 import Detail from './pages/Detail'
 import Header from './components/Header'
-import {DataPovider, DataProvider} from './context/DataContext'
+import { DataProvider } from './context/DataContext'
+
+const getBackground = style('mode', {
+  light: 'hsl(0, 0%, 100%)',
+  dark: 'hsl(209, 23%, 22%)'
+})
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -18,8 +25,11 @@ body{
 
 
 function App() {
+  const theme = useTheme()
+  
   return (
-    <ThemeProvider theme={{mode: 'light'}}>
+    //Setting up the theme globally.
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <DataProvider>
     <div className="App">

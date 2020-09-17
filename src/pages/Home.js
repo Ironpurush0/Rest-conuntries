@@ -6,7 +6,6 @@ import Dropdown from '../components/Dropdown'
 import FlagsList from '../components/FlagsList'
 
 import {Container} from '@material-ui/core'
-
 import {DataContext} from '../context/DataContext'
 
 function Home() {
