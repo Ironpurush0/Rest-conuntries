@@ -17,7 +17,7 @@ function Dropdown(props) {
 
     return (
         <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+        {/* <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel> */}
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
@@ -27,10 +27,10 @@ function Dropdown(props) {
           placeholder="Filter"
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>Filter by region</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={10}>Asia</MenuItem>
+          <MenuItem value={20}>Africa</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>

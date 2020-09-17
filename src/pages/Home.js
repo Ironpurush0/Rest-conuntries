@@ -5,37 +5,37 @@ import Card from '../components/Card'
 import SearchBar from '../components/SearchBar'
 import Dropdown from '../components/Dropdown'
 import FlagsList from '../components/FlagsList'
-import SingleCard from '../components/SingleCard'
 
-import useHook from '../hooks/useHook'
+
 import {Container} from '@material-ui/core'
 
 import {DataContext} from '../context/DataContext'
 
 function Home() {
     // const [region, setRegion] = useState('Filter be region')
-    // const [searchTerm, setSearchTerm] = useState('')
-
-    // const baseUrl = 'https://restcountries.eu/rest/v2/all'
-
-    // const handleChange = (event) => {
-    //     setSearchTerm(event.target.value)
-    // }
     const {data, loading} = useContext(DataContext)
-    console.log(data)
-    
-    if(loading){
-        return <h1>Loading...</h1>
+    const [searchTerm, setSearchTerm] = useState('')
+
+    const handleChange = (event) => {
+        setSearchTerm(event.target.value)
     }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+    }
+
+    //This will check if there is a searchTerm, if it is then it will render single country card otherwise it will render all the cards
+    const filteredData = !searchTerm ? data : data.filter(searchData => searchData.name === searchTerm)
 
     return (
         <>
         <Container maxWidth="lg">
             <div className="form__container">
-                <SearchBar />
+                <SearchBar value={searchTerm} onChange={handleChange} onSubmit={handleSubmit} />
                 <Dropdown  />
             </div>
-            <FlagsList data={data} />
+            {loading && <h1>Loading...</h1>}
+            <FlagsList data={filteredData} />
             </Container>
         </>
     )

@@ -24,7 +24,7 @@ const MediaCard = ({data}) => {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <Link to={`country/${data.name}`}>
+        <Link style={{textDecoration: 'none', color: 'black'}} to={`country/${data.name}`}>
         <CardMedia
           className={classes.media}
           image={data.flag}
@@ -32,7 +32,7 @@ const MediaCard = ({data}) => {
         />
         <CardContent>
           <Typography variant="h5" component="h2">
-            {name}
+            {data.name}
           </Typography>
             <p>Population: {data.population}</p>
             <p>Region: {data.region}</p>
