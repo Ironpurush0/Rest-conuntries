@@ -19,7 +19,7 @@ body{
 
 function App() {
   return (
-    <ThemeProvider theme={{mode: 'dark'}}>
+    <ThemeProvider theme={{mode: 'light'}}>
       <GlobalStyle />
       <DataProvider>
     <div className="App">

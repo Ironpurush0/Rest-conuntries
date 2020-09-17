@@ -1,6 +1,6 @@
 import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
-import {FormControl, InputLabel, Select, MenuItem} from '@material-ui/core'
+import {FormControl, Select, MenuItem} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -12,26 +12,43 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function Dropdown(props) {
+const continents = [
+  {
+    value: 'Asia',
+    label: 'Asia'
+  },
+  {
+    value: 'Africa',
+    label: 'Africa'
+  },
+  {
+    value: 'Europe',
+    label: 'Europe'
+  },
+  {
+    value: 'Oceania',
+    label: 'Oceania'
+  },
+  {
+    value: 'Americas',
+    label: 'Americas'
+  }
+]
+
+function Dropdown({region, handleChange}) {
     const classes = useStyles()
 
     return (
         <FormControl variant="outlined" className={classes.formControl}>
-        {/* <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel> */}
         <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={props.region}
-          variant="filled"
-          onChange={props.handleChange}
-          placeholder="Filter"
+          value={region}
+          variant="outlined"
+          onChange={handleChange}
         >
-          <MenuItem value="">
-            <em>Filter by region</em>
-          </MenuItem>
-          <MenuItem value={10}>Asia</MenuItem>
-          <MenuItem value={20}>Africa</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value="Filter by region">Filter by region</MenuItem>
+          {continents.map(continent => (
+            <MenuItem key={continent.label} value={continent.value}>{continent.label}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     )
