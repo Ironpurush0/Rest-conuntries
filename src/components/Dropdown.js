@@ -1,6 +1,7 @@
 import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import {FormControl, Select, MenuItem} from '@material-ui/core'
+import {Card} from '../components/Button'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -40,6 +41,7 @@ function Dropdown({region, handleChange}) {
 
     return (
         <FormControl variant="outlined" className={classes.formControl}>
+          <Card variant="normal">
         <Select
           value={region}
           variant="outlined"
@@ -50,6 +52,7 @@ function Dropdown({region, handleChange}) {
             <MenuItem key={continent.label} value={continent.value}>{continent.label}</MenuItem>
           ))}
         </Select>
+        </Card>
       </FormControl>
     )
 }

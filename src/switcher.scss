@@ -1,0 +1,13 @@
+//light theme
+$bg-theme-light: 'hsl(hsl(0, 0%, 98%))';
+$color-theme-light: 'hsl(200, 15%, 8%)';
+
+//dark theme
+$bg-theme-dark: 'hsl(207, 26%, 17%)';
+$color-theme-dark: 'hsl(0, 0%, 100%)';
+
+
+body {
+    background-color: $bg-theme-light;
+    color: $color-theme-light;
+}

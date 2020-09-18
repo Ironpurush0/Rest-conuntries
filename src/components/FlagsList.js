@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid} from '@material-ui/core'
+import {Container, Grid} from '@material-ui/core'
 
 
 import Card from '../components/Card'
@@ -8,17 +8,19 @@ const FlagsList = ({data}) => {
     // console.log(data)
 
     return (
-            <Grid container spacing={10}>
+        <Container>
+            <Grid container spacing={10} style={{width: '100%'}}>
                 {data.map(countryData => (
                    <Grid 
                    item
                    key={countryData.name} 
                    xs={12} 
-                   sm={3}>
+                   lg={3}>
                     <Card data={countryData} />
                  </Grid> 
                 ))}
             </Grid>
+        </Container>
     )
 }
 

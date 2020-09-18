@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import style from 'styled-theming'
+import {Button} from '@material-ui/core'
 
 const getBackground = style.variants('mode', 'variant', {
     normal: {
@@ -10,14 +11,24 @@ const getBackground = style.variants('mode', 'variant', {
 
 const getTextColor = style.variants('mode', 'variant', {
     normal: {
-        light: '#111',
-        dark: '#EEE'
+        light: 'hsl(200, 15%, 8%)',
+        dark: 'hsl(0, 0%, 100%)'
     }
 })
 
-const Button = styled.button`
+const getElementBackGround = style.variants('mode', 'variant', {
+    normal: {
+        light: 'hsl(0, 0%, 100%)',
+        dark: 'hsl(209, 23%, 22%)'
+    }
+})
+
+export const StyledButton = styled.button`
     background-color: ${getBackground};
     color: ${getTextColor};
 `
 
-export default Button
+export const Card = styled.div`
+    background-color: ${getElementBackGround};
+    color: ${getTextColor};
+`

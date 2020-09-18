@@ -10,18 +10,7 @@ import Home from './pages/Home'
 import Detail from './pages/Detail'
 import Header from './components/Header'
 import { DataProvider } from './context/DataContext'
-
-const getBackground = style('mode', {
-  light: 'hsl(0, 0%, 100%)',
-  dark: 'hsl(209, 23%, 22%)'
-})
-
-const GlobalStyle = createGlobalStyle`
-body{
-  background-color: ${props => props.theme.mode === 'dark' ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)'};
-  color: ${props => props.theme.mode === 'dark' ? ' hsl(0, 0%, 100%)' : 'hsl(200, 15%, 8%)'};
-}
-`
+import GlobalStyle from './Style/GlobalTheme'
 
 
 function App() {

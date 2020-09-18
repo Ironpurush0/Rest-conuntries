@@ -2,6 +2,7 @@ import React from 'react'
 import {Grid, Button} from '@material-ui/core'
 import {useHistory} from 'react-router-dom'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {StyledButton} from '../components/Button'
 
 const FlagDetail = ({data}) => {
 
@@ -10,16 +11,16 @@ const FlagDetail = ({data}) => {
     return (
         <Grid container spacing={2}>
         <Grid item xs={12}>
+        <StyledButton variant="normal">
           <Button 
-            variant="contained" 
             onClick={() => {
                 history.goBack()
             }} 
-            style={{marginBottom: 25}}
             startIcon={<ArrowBackIcon />}
             >
-            Back
+                Back
            </Button>
+           </StyledButton>
         </Grid>
         {data.map(countryInfo => (
             <>
@@ -49,10 +50,12 @@ const FlagDetail = ({data}) => {
                                 ))}
                             </div>
                         </div>
+                        <p>Border countries...</p>
                         <div className="buttons__container">
-                            <p>Border countries...</p>
                             {countryInfo.borders.map(response => (
-                                <Button key={response} variant="contained">{response}</Button>
+                                <StyledButton variant="normal">
+                                <Button key={response}>{response}</Button>
+                                </StyledButton>
                             ))}
                         </div>
                     </div>
