@@ -5,11 +5,10 @@ import {Container, Grid} from '@material-ui/core'
 import Card from '../components/Card'
 
 const FlagsList = ({data}) => {
-    // console.log(data)
 
     return (
         <Container>
-            <Grid container spacing={10} style={{width: '100%'}}>
+            <Grid container spacing={5}>
                 {data.map(countryData => (
                    <Grid 
                    item

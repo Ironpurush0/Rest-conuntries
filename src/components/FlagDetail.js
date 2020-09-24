@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Button} from '@material-ui/core'
+import {Grid} from '@material-ui/core'
 import {useHistory} from 'react-router-dom'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {StyledButton} from '../components/Button'
@@ -11,15 +11,15 @@ const FlagDetail = ({data}) => {
     return (
         <Grid container spacing={2}>
         <Grid item xs={12}>
-        <StyledButton variant="normal">
-          <Button 
+          <StyledButton
+          style={{backgroundColor: 'transparent', border: '1px solid black'}}
+          variant="normal" 
             onClick={() => {
                 history.goBack()
             }} 
             startIcon={<ArrowBackIcon />}
             >
                 Back
-           </Button>
            </StyledButton>
         </Grid>
         {data.map(countryInfo => (
@@ -53,9 +53,7 @@ const FlagDetail = ({data}) => {
                         <p>Border countries...</p>
                         <div className="buttons__container">
                             {countryInfo.borders.map(response => (
-                                <StyledButton variant="normal">
-                                <Button key={response}>{response}</Button>
-                                </StyledButton>
+                                <StyledButton variant="normal" style={{backgroundColor: 'transparent', border: '1px solid black'}} key={response}>{response}</StyledButton>
                             ))}
                         </div>
                     </div>

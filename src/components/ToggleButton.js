@@ -9,9 +9,9 @@ const ToggleButton = () => {
     return (
         <ThemeConsumer>
             {theme => 
-                <Button startIcon={<Brightness3Icon />} onClick={e => {
+                <StyledButton startIcon={<Brightness3Icon />} style={{backgroundColor: 'transparent'}} onClick={e => {
                 theme.setTheme(theme.mode === 'dark' ? {mode: 'light'} : {mode: 'dark'})
-            }}>Dark mode</Button>
+            }}>Dark mode</StyledButton>
             }
         </ThemeConsumer>
     )

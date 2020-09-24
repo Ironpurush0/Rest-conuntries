@@ -23,7 +23,7 @@ const getElementBackGround = style.variants('mode', 'variant', {
     }
 })
 
-export const StyledButton = styled.button`
+export const StyledButton = styled(Button)`
     background-color: ${getBackground};
     color: ${getTextColor};
 `
